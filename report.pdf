@@ -1,0 +1,44 @@
+1. Title Page
+Project Title: Binance Futures Trading Bot (Testnet)
+
+Author: Dhairya Mittal
+
+Date: January 27, 2026
+
+Objective: To develop a modular Python application for automated trading on the Binance Futures Testnet.
+
+2. System Architecture
+Describe the modular design you implemented (as seen in your src structure):
+
+client.py: Handles API authentication and session management.
+
+orders.py: Encapsulates the logic for Market and Limit order creation.
+
+validators.py: Ensures all user inputs (symbol, quantity, price) meet exchange requirements before execution.
+
+logging_config.py: Manages detailed logging of every API request and response to bot.log.
+
+3. Bug Fixes & Technical Challenges
+Explain how you resolved critical errors encountered during development:
+
+Timestamp Sync (Error -1021):
+
+Problem: Local system clock drift caused requests to be rejected.
+
+Solution: Implemented a synchronization step that calculates the timestamp_offset between the local machine and the Binance server before placing orders.
+
+Price Filter (Error -4024):
+
+Problem: Limit sell orders were rejected for being too far below the current mark price.
+
+Solution: Updated validation logic to ensure limit prices comply with exchange PERCENT_PRICE filters.
+
+4. Implementation Results (Screenshots)
+Include screenshots of your terminal showing the successful execution of your orders.
+
+Market Order: Status FILLED, showing the avgPrice.
+
+Limit Order: Status NEW, showing the order placed in the order book.
+
+5. Conclusion
+A brief summary stating that the bot successfully meets all core requirements, including secure credential management via .env and comprehensive error handling.
