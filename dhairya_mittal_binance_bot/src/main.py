@@ -17,7 +17,7 @@ def main(symbol, side, order_type, qty, price):
         
         client = get_binance_client()
 
-        # Fix for the -1021 Timestamp Error
+        
         server_time = client.get_server_time()['serverTime']
         local_time = int(time.time() * 1000)
         client.timestamp_offset = server_time - local_time
